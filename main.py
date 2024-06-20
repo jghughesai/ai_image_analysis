@@ -56,11 +56,9 @@ def main():
     try:
         base_directory = "files"
         gpt_result_filename = "gpt_result.tsv"
-        example_filename = "example_output.csv"
+        example_path = "example_output.csv"
 
         gpt_result_path = os.path.join(base_directory, gpt_result_filename)
-
-        example_path = os.path.join(base_directory, example_filename)
 
         process_dir(base_directory, gpt_result_path, example_path)
     except Exception as e:

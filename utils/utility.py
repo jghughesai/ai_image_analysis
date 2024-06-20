@@ -6,7 +6,7 @@ import openpyxl
 import logging
 import io
 
-def process_image(dir, filename):
+def process_image(dir: str, filename: str):
     logging.info(f"filename in process_image: {filename}")
     try:
         image_path = f"{dir}/{filename}"
@@ -19,7 +19,28 @@ def process_image(dir, filename):
         logging.error(f"Error processing image {filename}: {e}")
         raise
 
-def append_to_file(file_path, data, new_column_value, mode='w'):
+def get_example_content(file_path: str):
+    try:
+        if not os.path.isfile(file_path):
+            raise FileNotFoundError(f"example file not found at: {file_path}")
+        
+        example_df = pd.read_csv(file_path, delimiter=';', on_bad_lines='skip')
+        example_df_str = example_df.to_csv(index=False, sep=';')
+        return example_df_str
+    except FileNotFoundError as fnf_error:
+        logging.error(fnf_error)
+        raise
+    except pd.errors.EmptyDataError:
+        logging.error(f"No data in file at: {file_path}")
+        raise
+    except pd.errors.ParserError as pe:
+        logging.error(f"Parsing error in file at: {file_path}: {pe}")
+        raise
+    except Exception as e:
+        logging.error(f"Unexpected error in get_example_content: {e}")
+        raise
+
+def append_to_file(file_path: str, data: str, new_column_value: str, mode='w'):
     try:
         data_io = io.StringIO(data.strip())
         csv_reader = csv.reader(data_io, delimiter='|')
@@ -35,7 +56,7 @@ def append_to_file(file_path, data, new_column_value, mode='w'):
         logging.error(f"Error writing to file {file_path}: {e}")
         raise
 
-def get_image_id(filename):
+def get_image_id(filename: str):
     try:
         if filename.endswith(('.JPG', '.JPEG', '.jpg', '.jpeg')):
             img_id = filename.rsplit('.', 1)[0]

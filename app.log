@@ -1,0 +1,384 @@
+2024-06-20 11:01:33,575 - root - INFO - FILENAMES in directory: ['IMG_5876.JPG', 'IMG_5877.JPG']
+
+2024-06-20 11:01:33,575 - root - INFO - \current file being worked: IMG_5876.JPG
+
+2024-06-20 11:01:33,575 - root - INFO - filename in process_image: IMG_5876.JPG
+2024-06-20 11:01:33,584 - root - INFO - Base64 image string (start): /9j/4QoGRXhpZgAATU0AKgAAAAgACwEPAAIAAAAGAAAAkgEQAAIAAAAKAAAAmAESAAMAAAABAAEAAAEaAAUAAAABAAAAogEbAAUA
+2024-06-20 11:01:33,585 - root - INFO - Base64 image string (end): 28msC6hVW284I/E12P2cY7En17isG9j8vJ6n/wBBroOc5v7Oyybv4fu5P8qkjWGNirSbOx71c8uH5Vk/L1pv7uxbP4HuKrkYH//Z
+2024-06-20 11:01:33,602 - root - INFO - Image successfully verified and decoded from base64.
+2024-06-20 11:01:33,603 - root - INFO - gpt prompt: 
+System Prompt for Analyzing Handwritten Bill of Materials (BoM):
+
+Objective: To accurately extract and digitize information from handwritten Bill of Materials (BoM) images.
+
+Tasks:
+
+Text Recognition:
+
+Identify and extract all handwritten text from the provided image.
+
+Ensure the accuracy of recognized text, focusing on numbers, letters, and special characters.
+
+Categorization:
+
+Categorize the extracted text into appropriate fields based on the BoM structure, such as:
+
+Item Type (e.g., Ball Bearings, Belts, Cam Follower Bushings, Chain, Clamps)
+
+Specific Item Description (e.g., Metal, Ball, Flange, Pillow Block, Radial Paper, etc.)
+
+Item Codes (e.g., 01-001-000, 1-045-000, etc.)
+
+Validation:
+
+Cross-check the extracted data for any inconsistencies or illegible entries.
+
+Highlight areas where the handwriting is unclear or ambiguous for further review.
+
+Output Format:
+
+Present the extracted and categorized data in a structured format such as a table or a spreadsheet.
+
+Ensure each item is clearly associated with its respective category and code.
+
+Error Handling:
+
+If any part of the text is not recognizable, indicate this in the output with a placeholder (e.g., [Unclear]).
+
+The following are snippets of various example formats for you to use in formatting your output. These examples are provided to assist in recognizing different possible layouts that may represent the Bill of Materials image I provided you with. Please note that the format of the current BOM image may not directly match any of these examples so make sure to look very closely at the image and make sure your output is accurate:
+
+Category| Subcategory| Part Number\n
+Ball Bearings| Metal| 01-001-000\n
+Ball Bearings| Ball| 01-002-000\n
+Ball Bearings| Flange| 01-005-000\n
+Ball Bearings| Pillow Block| 01-006-000\n
+Ball Bearings| Radial Taper| 01-007-000\n
+Ball Bearings| Needle & Cylindrical Roller| 01-008-000\n
+Ball Bearings| Thrust| 01-009-000\n
+Ball Bearings| Linear Bearings (Ball Bushings)| 01-010-000\n
+Ball Bearings| Spherical Bearing| 01-011-000\n
+Belts| Flat| 01-014-000\n
+Belts| Round| 01-014-500\n
+Belts| Timing| 01-015-000\n
+Belts| V - A, B, C, D, & E Sections| 01-016-000\n
+Belts| V - 2L, 3L, 4L, 5L Sections| 01-017-000\n
+Belts| V - O| 01-018-000\n
+Belts| Flat| 01-019-000\n
+Belts| VeeLoS| 01-020-000\n
+Belts| Fasteners| 01-021-000\n
+Cam Follower| (see 61-123-000)| 01-023-000\n\n
+Category|Item|Code\n
+Handles/Latches|Paw Latch - Knurled Grip Range 3/4 - 1 1/4 McMaster Carr No. 1897A41|01-030-000\n
+Handles/Latches|Southco Lift-and-Turn Flush Latch 400 Series Grip Range 9/16-1 1/2 Polished Chrome Part No. 82-10-401-10 Purch From Thomas Hardware - Roslindale Tel. 1-800-288-3535|01-030-026-7\n
+"Handles/Latches|Handle - Adjustable - Reid # KHB-734 5/16-18 x 1"" Threaded Stainless Steel Stud|01-090-027-7\n"
+Handles/Latches|Clamping Lever - Chrome Pl Steel with Bakelite Ball - Reid # D4-20A|01-090-028-7\n
+"Handles/Latches|Crank Handle - Aluminum Crank w/ Revolving Plastic Handle 5/8"" Bore, 6"" OAL McMaster # 6473K77|01-070-023-7\n"
+Handles/Latches|Handle - Adjustable - Reid # KHB-742 5/16-18 x 2.3125 Threaded Stain Steel St|01-090-030-7\n
+Handles/Latches|Handle 9/16 Dia. 3 1/2 C to C S.S. 10-32 TAP Reid VPH-232|01-090-031-7\n
+Handles/Latches|Handle - Elesa Code # 437313 Vendor - Nolu|01-090-032-7\n
+Handles/Latches|Southco Lift & Turn Latch Part No - 82-10-21 (376772) 5/16-18 x 1.12 LG THD (Found in Stock Room, No PO)|01-090-033-7\n
+Handles/Latches|Handle-Adjustable-Threaded Stud Type 5/16-18 x .75 LG Reid Cat # KHA-120|01-090-034-7\n
+Category|Item|Code|Paul Moore #\n
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .040"" Thick x 1 1/2"" x 72"" LG - 3/32"" PIN|01-093-001-7|SS040024\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .060"" Thick x 1 1/2"" x 72"" LG - 1/8"" PIN|01-093-002-7|S060024\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .060"" Thick x 2"" x 72"" LG - 1/8"" PIN|01-093-003-7|SS060232\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .060"" Thick x 1 1/2"" x 72"" LG - 1/8"" PIN|01-093-004-7|SS060524\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .060"" Thick x 1 1/2"" x 72"" LG - 3/16"" PIN|01-093-005-7|SS052024\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .050"" Thick x 2"" x 72"" LG - 1/8"" PIN|01-093-006-7|S050024\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .040"" Thick x 1/4"" x 72"" LG - 3/32"" PIN|01-093-007-7|S040020\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .090"" Thick x 3"" x 72"" LG - 1/4"" PIN|01-093-008-7|S090348\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .075"" Thick x 3"" x 72"" LG - 1/4"" PIN|01-093-009-7|S076048\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .060"" Thick x 2"" x 96"" LG - 1/8"" PIN|01-093-010-7|S063032\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .060"" Thick x 1 1/2"" x 72"" LG - 1/8"" PIN|01-093-011-7|S063020\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .090"" Thick x 3"" x 72"" LG - 1/4"" PIN|01-093-012-7|SS090348\n\n"
+I.D.|O.D.|Width|Manufacturer|CAT No\n
+"1/2""|1 3/8""(FLANGED)|7/16|NICE|5881V\n"
+"1 1/8""|62|1.5|Sealmaster|ER-18\n"
+"7/8""|52|1.375|Sealmaster|ER-14\n"
+"3/4""|47|1.28125|Sealmaster|ER-12T\n"
+"1""|2|0.5|MRC|R-16-FF\n"
+"1""|2|0.5|MRC|R-16-ZZ\n"
+"5/8""|40|1/2|NTN|203\n"
+25|52|15|SKF|6205-2Z\n
+"1""|52|1.625|Sealmaster|ER-16T\n"
+10mm|26mm|8mm|FAFNIR|100 KDD\n
+"1/2""|1 1/8""|3/8|NICE|1616 SS\n"
+"3/4""|47|1.09375|Sealmaster|ER-12\n"
+"1/2""|1.375|3/8|NICE|3016 NS\n"
+20|47|14|SKF|6204-2RS1\n
+35|72|17|SKF|6207\n
+45481|2|3/4|SKF|7514 DLG\n
+10|30|9|SKF|6200-2RS1\n
+"1 1/2""|80|1.9375|Sealmaster|ER-24\n"
+"0.5""|1.125|0.3125|MRC|R8ZZ\n"
+15|32|9|SKF|6002-2RS\n
+"1/2""|1 1/8""|3/8|NICE|1616DC\n"
+1/8|1.875|1/2|NICE|C14DS\n
+1.25|2.5625|7/8|NICE|7520DEG\n
+25|52|18|CHFT-ITALY|62205\n
+30|62|16|FAFNIR|206KG\n
+1/4|5/8|1969|MRC|R4ZZ\n
+3/4|2|3/4|NICE|7514DL\n
+40|80|18|SKF|6208\n
+1.125|2.5625|7/8|NICE|7518DLG\n
+0.5|1.125|0.25|NDH|55R8\n
+1/4|11/16|1/4|GENBEARCO|Z104-77\n
+12|28|8|FAG|6001-2RS\n
+17|40|12|FAFNIR|203NPPG\n
+1.25|2.25|1/2|NICE|C20DS\n
+
+
+
+Instructions for the AI System:
+
+Pay special attention to the format and spacing of handwritten text to correctly interpret and categorize the information.
+
+Present the final output in a user-friendly and editable format, ensuring easy access for review and modification.
+        
+Instructions with specifics:
+
+Please extract the data from the handwritten bill of materials image and present it in a structured table format. Identify the column headers and populate the corresponding data accurately. If any information is unclear or illegible, indicate that in the respective cell. Make the table tab delimited ('|') and add a new-line character ('\n') to end of each row.
+
+The table should include the following columns if present in the image:
+
+- Category
+- Subcategory
+- Part Number or ID
+- Description or Name
+- Material or Specification
+- Dimensions or Size
+- Quantity or Count
+- Any additional columns present in the image
+
+If a column is missing from the image and/or the example, you can omit it from the table. Sometimes the Part Number doesn't follow sequential ordering so it is very important that you examine each Part Number on every row to ensure accuracy. Please ensure the data is captured accurately and in the correct format.
+
+Do not include any comments or other text in the output, just output the table.
+
+2024-06-20 11:01:48,052 - root - INFO - Data successfully saved to files/gpt_result.tsv
+2024-06-20 11:01:48,052 - root - INFO - gpt_response: Category|Subcategory|Part Number\n
+Ball Bearings|Metal|01-001-000\n
+Ball Bearings|Ball|01-002-000\n
+Ball Bearings|Flange|01-005-000\n
+Ball Bearings|Pillow Block|01-006-000\n
+Ball Bearings|Radial Taper|01-007-000\n
+Ball Bearings|Needle & Cylindrical Roller|01-008-000\n
+Ball Bearings|Thrust|01-009-000\n
+Ball Bearings|Linear Bearings (Ball Bushings)|01-010-000\n
+Ball Bearings|Spherical Bearing|01-011-000\n
+Belts|Flat|01-014-000\n
+Belts|Round|01-014-500\n
+Belts|Timing|01-015-000\n
+Belts|V - A, B, C, D, & E Sections|01-016-000\n
+Belts|V - 2L, 3L, 4L, 5L Sections|01-017-000\n
+Belts|V - O|01-018-000\n
+Belts|Flat|01-019-000\n
+Belts|VeeLoS|01-020-000\n
+Belts|Fasteners|01-021-000\n
+Cam Follower| (see 61-123-000)|01-023-000\n
+Bushings|Oil Impregnated - Plain Cylindrical|01-024-000\n
+Bushings|Flange|01-025-000\n
+Bushings|Plain Bronze - Cylindrical|01-026-000\n
+Bushings|Thrust|01-027-000\n
+Bushings|Misc - Nylon, Aguto, DU, ER|01-028-000\n
+Bumpers|Tape Lock|01-127-000\n
+Bushings|Tape Lock|01-032-000\n
+Chain|Roller - Solid Pin|01-035-000\n
+Chain|Roller - Hollow Pin|01-037-000\n
+Chain|Block|01-039-000\n
+Chain|Silent|01-040-000\n
+Chain|Attachments & Misc.|01-041-000\n
+Clamps|Cable|01-045-000\n
+Clamps|Hose|01-046-000\n
+Clamps|Pipe|01-047-000\n
+Clamps|Misc.|01-048-000\n
+2024-06-20 11:01:48,052 - root - INFO - \current file being worked: IMG_5877.JPG
+
+2024-06-20 11:01:48,052 - root - INFO - filename in process_image: IMG_5877.JPG
+2024-06-20 11:01:48,074 - root - INFO - Base64 image string (start): /9j/4AAUSkZJRgABAQEBLAEsAABBTVBG/+EnYkV4aWYAAE1NACoAAAAIAAsBDwACAAAABgAAAJIBEAACAAAACgAAAJgBEgADAAAA
+2024-06-20 11:01:48,075 - root - INFO - Base64 image string (end): AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+2024-06-20 11:01:48,089 - root - INFO - Image successfully verified and decoded from base64.
+2024-06-20 11:01:48,089 - root - INFO - gpt prompt: 
+System Prompt for Analyzing Handwritten Bill of Materials (BoM):
+
+Objective: To accurately extract and digitize information from handwritten Bill of Materials (BoM) images.
+
+Tasks:
+
+Text Recognition:
+
+Identify and extract all handwritten text from the provided image.
+
+Ensure the accuracy of recognized text, focusing on numbers, letters, and special characters.
+
+Categorization:
+
+Categorize the extracted text into appropriate fields based on the BoM structure, such as:
+
+Item Type (e.g., Ball Bearings, Belts, Cam Follower Bushings, Chain, Clamps)
+
+Specific Item Description (e.g., Metal, Ball, Flange, Pillow Block, Radial Paper, etc.)
+
+Item Codes (e.g., 01-001-000, 1-045-000, etc.)
+
+Validation:
+
+Cross-check the extracted data for any inconsistencies or illegible entries.
+
+Highlight areas where the handwriting is unclear or ambiguous for further review.
+
+Output Format:
+
+Present the extracted and categorized data in a structured format such as a table or a spreadsheet.
+
+Ensure each item is clearly associated with its respective category and code.
+
+Error Handling:
+
+If any part of the text is not recognizable, indicate this in the output with a placeholder (e.g., [Unclear]).
+
+The following are snippets of various example formats for you to use in formatting your output. These examples are provided to assist in recognizing different possible layouts that may represent the Bill of Materials image I provided you with. Please note that the format of the current BOM image may not directly match any of these examples so make sure to look very closely at the image and make sure your output is accurate:
+
+Category| Subcategory| Part Number\n
+Ball Bearings| Metal| 01-001-000\n
+Ball Bearings| Ball| 01-002-000\n
+Ball Bearings| Flange| 01-005-000\n
+Ball Bearings| Pillow Block| 01-006-000\n
+Ball Bearings| Radial Taper| 01-007-000\n
+Ball Bearings| Needle & Cylindrical Roller| 01-008-000\n
+Ball Bearings| Thrust| 01-009-000\n
+Ball Bearings| Linear Bearings (Ball Bushings)| 01-010-000\n
+Ball Bearings| Spherical Bearing| 01-011-000\n
+Belts| Flat| 01-014-000\n
+Belts| Round| 01-014-500\n
+Belts| Timing| 01-015-000\n
+Belts| V - A, B, C, D, & E Sections| 01-016-000\n
+Belts| V - 2L, 3L, 4L, 5L Sections| 01-017-000\n
+Belts| V - O| 01-018-000\n
+Belts| Flat| 01-019-000\n
+Belts| VeeLoS| 01-020-000\n
+Belts| Fasteners| 01-021-000\n
+Cam Follower| (see 61-123-000)| 01-023-000\n\n
+Category|Item|Code\n
+Handles/Latches|Paw Latch - Knurled Grip Range 3/4 - 1 1/4 McMaster Carr No. 1897A41|01-030-000\n
+Handles/Latches|Southco Lift-and-Turn Flush Latch 400 Series Grip Range 9/16-1 1/2 Polished Chrome Part No. 82-10-401-10 Purch From Thomas Hardware - Roslindale Tel. 1-800-288-3535|01-030-026-7\n
+"Handles/Latches|Handle - Adjustable - Reid # KHB-734 5/16-18 x 1"" Threaded Stainless Steel Stud|01-090-027-7\n"
+Handles/Latches|Clamping Lever - Chrome Pl Steel with Bakelite Ball - Reid # D4-20A|01-090-028-7\n
+"Handles/Latches|Crank Handle - Aluminum Crank w/ Revolving Plastic Handle 5/8"" Bore, 6"" OAL McMaster # 6473K77|01-070-023-7\n"
+Handles/Latches|Handle - Adjustable - Reid # KHB-742 5/16-18 x 2.3125 Threaded Stain Steel St|01-090-030-7\n
+Handles/Latches|Handle 9/16 Dia. 3 1/2 C to C S.S. 10-32 TAP Reid VPH-232|01-090-031-7\n
+Handles/Latches|Handle - Elesa Code # 437313 Vendor - Nolu|01-090-032-7\n
+Handles/Latches|Southco Lift & Turn Latch Part No - 82-10-21 (376772) 5/16-18 x 1.12 LG THD (Found in Stock Room, No PO)|01-090-033-7\n
+Handles/Latches|Handle-Adjustable-Threaded Stud Type 5/16-18 x .75 LG Reid Cat # KHA-120|01-090-034-7\n
+Category|Item|Code|Paul Moore #\n
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .040"" Thick x 1 1/2"" x 72"" LG - 3/32"" PIN|01-093-001-7|SS040024\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .060"" Thick x 1 1/2"" x 72"" LG - 1/8"" PIN|01-093-002-7|S060024\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .060"" Thick x 2"" x 72"" LG - 1/8"" PIN|01-093-003-7|SS060232\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .060"" Thick x 1 1/2"" x 72"" LG - 1/8"" PIN|01-093-004-7|SS060524\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .060"" Thick x 1 1/2"" x 72"" LG - 3/16"" PIN|01-093-005-7|SS052024\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .050"" Thick x 2"" x 72"" LG - 1/8"" PIN|01-093-006-7|S050024\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .040"" Thick x 1/4"" x 72"" LG - 3/32"" PIN|01-093-007-7|S040020\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .090"" Thick x 3"" x 72"" LG - 1/4"" PIN|01-093-008-7|S090348\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .075"" Thick x 3"" x 72"" LG - 1/4"" PIN|01-093-009-7|S076048\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .060"" Thick x 2"" x 96"" LG - 1/8"" PIN|01-093-010-7|S063032\n"
+"Hinge-Continuous|Hinge - Continuous - Steel .060"" Thick x 1 1/2"" x 72"" LG - 1/8"" PIN|01-093-011-7|S063020\n"
+"Hinge-Continuous|Hinge - Continuous - Stainless Steel .090"" Thick x 3"" x 72"" LG - 1/4"" PIN|01-093-012-7|SS090348\n\n"
+I.D.|O.D.|Width|Manufacturer|CAT No\n
+"1/2""|1 3/8""(FLANGED)|7/16|NICE|5881V\n"
+"1 1/8""|62|1.5|Sealmaster|ER-18\n"
+"7/8""|52|1.375|Sealmaster|ER-14\n"
+"3/4""|47|1.28125|Sealmaster|ER-12T\n"
+"1""|2|0.5|MRC|R-16-FF\n"
+"1""|2|0.5|MRC|R-16-ZZ\n"
+"5/8""|40|1/2|NTN|203\n"
+25|52|15|SKF|6205-2Z\n
+"1""|52|1.625|Sealmaster|ER-16T\n"
+10mm|26mm|8mm|FAFNIR|100 KDD\n
+"1/2""|1 1/8""|3/8|NICE|1616 SS\n"
+"3/4""|47|1.09375|Sealmaster|ER-12\n"
+"1/2""|1.375|3/8|NICE|3016 NS\n"
+20|47|14|SKF|6204-2RS1\n
+35|72|17|SKF|6207\n
+45481|2|3/4|SKF|7514 DLG\n
+10|30|9|SKF|6200-2RS1\n
+"1 1/2""|80|1.9375|Sealmaster|ER-24\n"
+"0.5""|1.125|0.3125|MRC|R8ZZ\n"
+15|32|9|SKF|6002-2RS\n
+"1/2""|1 1/8""|3/8|NICE|1616DC\n"
+1/8|1.875|1/2|NICE|C14DS\n
+1.25|2.5625|7/8|NICE|7520DEG\n
+25|52|18|CHFT-ITALY|62205\n
+30|62|16|FAFNIR|206KG\n
+1/4|5/8|1969|MRC|R4ZZ\n
+3/4|2|3/4|NICE|7514DL\n
+40|80|18|SKF|6208\n
+1.125|2.5625|7/8|NICE|7518DLG\n
+0.5|1.125|0.25|NDH|55R8\n
+1/4|11/16|1/4|GENBEARCO|Z104-77\n
+12|28|8|FAG|6001-2RS\n
+17|40|12|FAFNIR|203NPPG\n
+1.25|2.25|1/2|NICE|C20DS\n
+
+
+
+Instructions for the AI System:
+
+Pay special attention to the format and spacing of handwritten text to correctly interpret and categorize the information.
+
+Present the final output in a user-friendly and editable format, ensuring easy access for review and modification.
+        
+Instructions with specifics:
+
+Please extract the data from the handwritten bill of materials image and present it in a structured table format. Identify the column headers and populate the corresponding data accurately. If any information is unclear or illegible, indicate that in the respective cell. Make the table tab delimited ('|') and add a new-line character ('\n') to end of each row.
+
+The table should include the following columns if present in the image:
+
+- Category
+- Subcategory
+- Part Number or ID
+- Description or Name
+- Material or Specification
+- Dimensions or Size
+- Quantity or Count
+- Any additional columns present in the image
+
+If a column is missing from the image and/or the example, you can omit it from the table. Sometimes the Part Number doesn't follow sequential ordering so it is very important that you examine each Part Number on every row to ensure accuracy. Please ensure the data is captured accurately and in the correct format.
+
+Do not include any comments or other text in the output, just output the table.
+
+2024-06-20 11:02:06,571 - root - INFO - Data successfully saved to files/gpt_result.tsv
+2024-06-20 11:02:06,571 - root - INFO - gpt_response: Category|Subcategory|Part Number\n
+Clutch/Brake|Mechanical Operated|1-050-000\n
+Clutch/Brake|Electrical|1-051-000\n
+Clutch/Brake|Air|1-052-000\n
+Code Daters|Misc. Parts|1-053-000\n
+Code Daters|Printers/Labelers|1-054-000\n
+Collars|Hand Seals|1-055-000\n
+Collars|Steel (One S.S.)|1-056-000\n
+Collars|Stainless (One S.S.)|1-057-000\n
+Collars|Steel Split|1-058-000\n
+Collars|Stainless Split|1-059-000\n
+Collars|Miscellaneous|1-059-000\n
+Counters|Mechanical|01-060-000\n
+Counters|Electrical|01-061-000\n
+Counters|Position Indicators|01-062-000\n
+Couplings|Flexible|1-063-000\n
+Couplings|Rigid|1-064-000\n
+Cups|Suction|1-065-000\n
+Cylinders|Air|1-066-000\n
+Cylinders|Hydraulic|1-067-000\n
+Filters|Air (Combo Units)|1-070-000\n
+Filters|Filters|1-071-000\n
+Filters|Regulators & MTG Brackets|1-072-000\n
+Filters|Lubricators|1-073-000\n
+Fittings|Hose|1-074-000\n
+Fittings|Tube|1-075-000\n
+Fittings|Pipe|1-076-000\n
+Fittings|Oil & Grease|1-077-000\n
+Fittings|Compression|1-078-000\n
+Fittings|Pipe - High Pressure & Special|1-079-000\n
+Gauges|Pressure & Flow|1-082-000\n
+Gauges|Vacuum|1-083-000\n
+Gauges|Sight|1-083-500\n
+2024-06-20 11:02:06,571 - root - INFO - 
+Completed audit for files written as tsv file
+

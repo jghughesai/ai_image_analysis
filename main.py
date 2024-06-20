@@ -1,6 +1,6 @@
 import os
 import re
-from utility import process_image, append_to_file, get_image_id
+from utils.utility import process_image, append_to_file, get_image_id
 from prompt_functions import get_prompt_with_example
 from api_functions import GPTInterpreter, get_ai_response, RateLimitError
 import logging

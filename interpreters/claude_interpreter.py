@@ -25,9 +25,9 @@ class ClaudeInterpreter(BaseInterpreter):
             
             logging.info(f"claude prompt: {prompt}")
             message = self.client.messages.create(
-                model="claude-3-opus-20240229",
+                model="claude-3-5-sonnet-20240620",
                 temperature=0,
-                max_tokens=2024,
+                max_tokens=3024,
                 messages=[
                     {
                         "role": "user",

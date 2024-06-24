@@ -1,9 +1,9 @@
 import os
-from interpreters.base import BaseInterpreter
+from ..interpreters.base import BaseInterpreter
 import re
-from utils.utility import process_image, append_to_file, get_image_id
-from interpreters.gpt_interpreter import RateLimitError
-from utils.ai_functions import analyze_image
+from ..utils.utility import process_image, append_to_file, get_image_id
+from ..interpreters.gpt_interpreter import RateLimitError
+from ..utils.ai_functions import analyze_image
 import logging
 import time
 

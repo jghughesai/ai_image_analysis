@@ -1,5 +1,5 @@
 import logging
-from interpreters.base import BaseInterpreter
+from ..interpreters.base import BaseInterpreter
 
 def analyze_image(interpreter: BaseInterpreter, prompt: str, base64_image):
     if not interpreter:

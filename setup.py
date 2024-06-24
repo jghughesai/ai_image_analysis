@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "requests",
-        "pillow",
+        "pillow",  
         "openpyxl",
         "pandas",
         "openai",
@@ -15,5 +15,5 @@ setup(
     author="Justin Hughes",
     author_email="jghughesai@gmail.com",
     description="A library for AI interpreters and image processing",
-    url="https://github.com/jghughesai/ai_image_analysis"
+    url="https://github.com/jghughesai/ai_image_analysis",
 )

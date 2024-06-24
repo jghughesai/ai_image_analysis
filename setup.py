@@ -7,5 +7,5 @@ setup(
     author="Justin Hughes",
     author_email="jghughesai@gmail.com",
     description="A library for AI interpreters and image processing",
-    url=""
+    url="https://github.com/jghughesai/Bill-of-Materials-AI-Analysis-Tool"
 )

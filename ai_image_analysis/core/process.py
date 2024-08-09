@@ -28,6 +28,7 @@ def process_all_formats(interpreter: BaseInterpreter, base_directory: str, outpu
 
         format_df = process_format(interpreter, format_path)
         format_dataframes[format_dir] = format_df
+        logging.info(f"FORMAT DATAFRAMES IN LOOP: {format_dataframes}")
 
     # Combine all DataFrames
     combined_df = pd.concat(format_dataframes.values(), keys=format_dataframes.keys())
@@ -36,6 +37,7 @@ def process_all_formats(interpreter: BaseInterpreter, base_directory: str, outpu
     # Write combined DataFrame to TSV
     combined_df.to_csv(output_path, sep='\t', index=False)
     logging.info(f"Combined data from all formats written to: {output_path}")
+    logging.info(f"FORMAT DATAFRAMES OUT OF LOOP: {format_dataframes}")
 
 def process_format(interpreter: BaseInterpreter, directory: str):
     format_df = pd.DataFrame()

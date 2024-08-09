@@ -38,6 +38,7 @@ def process_all_formats(interpreter: BaseInterpreter, base_directory: str, outpu
     combined_df.to_csv(output_path, sep='\t', index=False)
     logging.info(f"Combined data from all formats written to: {output_path}")
     logging.info(f"FORMAT DATAFRAMES OUT OF LOOP: {format_dataframes}")
+    return format_dataframes
 
 def process_format(interpreter: BaseInterpreter, directory: str):
     format_df = pd.DataFrame()
